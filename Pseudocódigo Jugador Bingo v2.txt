@@ -1,0 +1,50 @@
+// Estructura (acordate de incluir <stdbool.h> para usar bool en C)
+typedef struct {
+    tString nombre;
+    tCartonBingo carton;
+    bool hizoLinea;
+} tJugador;
+
+// 1. Inicializa al jugador
+crearJugador(jugador, nombreIngresado)
+    copiar nombreIngresado en jugador.nombre
+    jugador.carton = inicializarCarton()
+    jugador.hizoLinea = false
+
+// 2. El jugador intenta marcar una casilla manualmente
+jugarTurno(jugador, numeroSorteado, filaElegida, colElegida)
+    // Verificamos si en esa coordenada del cartón realmente está el número que salió
+    si jugador.carton.numero[filaElegida][colElegida] == numeroSorteado
+        // Usamos la función que ya existe en cartonBingo.h
+        tacharNumero(jugador.carton, numeroSorteado)
+        mostrar "¡Bien! Se tachó el número [numeroSorteado]"
+        devolver true
+    sino
+        mostrar "Error: ese número no está en esa casilla."
+        devolver false
+
+// 3. Revisa si completó una fila (Línea) o todo el cartón (Bingo)
+verificarEstado(jugador)
+    // Chequeo de LÍNEA (solo si todavía no la había cantado)
+    si jugador.hizoLinea == false
+        numFila = filaGanadora(jugador.carton)
+        si numFila > 0
+            jugador.hizoLinea = true
+            mostrar "¡LÍNEA! Fila [numFila] de [jugador.nombre] completa."
+
+    // Chequeo de BINGO (ganador total)
+    si contarTachados(jugador.carton) == CASILLAS
+        mostrarGanador(jugador)
+        devolver true   // indica que la partida terminó
+    sino
+        devolver false  // sigue el juego
+
+// 4. Muestra la pantalla final del ganador
+mostrarGanador(jugador)
+    mostrar "¡¡¡BINGO!!! Ganó [jugador.nombre]"
+    mostrarCarton(jugador.carton)
+
+// 5. Muestra el estado normal durante la partida
+mostrarJugador(jugador)
+    mostrar "Jugador: [jugador.nombre]"
+    mostrarCarton(jugador.carton)

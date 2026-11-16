@@ -1,0 +1,46 @@
+//jugador
+typedef struct{
+tstring nombre
+tcartonbingo carton
+bool hizoLinea
+} tjugador;
+
+
+crearJugador(nombre)
+	jugador.carton = inicializarCarton()
+	jugador.hizoLinea = 0
+
+jugarTurno(){
+    if (el numero q salió está en la casilla q marcó)
+        printf de que se tacho el num
+	numeroTachado=true
+	
+    sino
+	numeroTachado=false
+
+return numeroTachado;
+}
+
+tacharNumero(){
+if numeroTachado= true{
+tachar en el carton
+}
+
+mostrarGanador()
+    if jugador.hizoLinea = true
+        fila = filaGanadora(jugador.carton)
+            printf "fila %d de %s completa", numFila, nombredeljugador
+    
+
+
+if (filaCompleta== true){
+
+función que muestra el ganador
+
+
+}
+
+
+mostrarJugador(jugador)
+    mostrar nombre y mensaje de que gano
+    mostrarCarton(jugador.carton)
