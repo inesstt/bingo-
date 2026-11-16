@@ -1,0 +1,83 @@
+pseudocodigo tCartonBingo con listas
+constantes
+    filas = 3
+    columnas = 5
+    max = 50
+
+//parte del carton 
+tCartonBingo
+    numero[FILAS][COLUMNAS] (nros del cartón)
+    tachado[FILAS][COLUMNAS] (0 = sin tachar, 1 = tachado)
+
+tListaBolillas
+    cada nodo tiene un nro y un puntero al siguiente nodo
+
+
+inicializarCarton
+    poner todos los números en 0 y todos los tachados en 0
+    para cada casilla del cartón repetir:
+            nuevo = número al azar entre 1 y 50
+        hasta que nuevo no este ya en el cartón (usar buscarNumero)
+        guardar nuevo en la casilla
+    devolver el cartón
+
+buscarNumero(carton, numeroBuscado)
+    recorrer casilla por casilla
+    si la casilla tiene el número buscado
+        guardar su fila y columna
+        devolver "encontrado"
+    devolver "no hay"
+
+tacharNumero(carton, numeroSorteado)
+    si buscarNumero lo encuentra
+        marcar esa casilla como tachada
+        devolver 1
+    sino
+        devolver 0 (no tacha nada mas)
+
+filaCompleta(carton, fila)
+    si alguna casilla de la fila esta sin tachar
+        devolver "no"
+    devolver "si"
+
+filaGanadora(carton)
+    para cada fila
+        si filaCompleta
+            devolver el nro de esa fila
+    devolver 0 (ninguna completa)
+
+mostrarCarton
+    dibujar la tabla; los tachados se muestran entre corchetes []
+
+//parte de la lista
+insertarAlFinal(lista, numero)
+    crear un nodo nuevo con el número
+    si la lista esta vacía
+        el nodo nuevo es el primero
+    sino
+        recorrer hasta el ultimo nodo
+        enlazar el nodo nuevo al final
+
+eliminarEnPos(lista, posicion)
+    si la posición es 1
+        eliminar el primer nodo
+    sino
+        ir hasta el nodo anterior a esa posición
+        saltear el nodo que se elimina y liberarlo
+
+obtenerEnPos(lista, posicion)
+    avanzar (posicion - 1) nodos
+    devuelve el dato de ese nodo
+
+contarElementos(lista)
+    recorrer la lista contando nodos
+    devuelve la cantidad
+
+buscarEnLista(lista, numero)
+    recorrerla lista
+    si un nodo tiene ese número
+        devuelve su posición
+    devuelve 0 (no esta)
+
+visualizarElem(lista)    //mostrar todos los nros
+liberarLista(lista)      //borrar todos los nodos
