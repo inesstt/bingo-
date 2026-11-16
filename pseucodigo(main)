@@ -1,0 +1,35 @@
+PSEUDO CODIGOOO bingo
+
+    Partida de Bingo
+- Iniciar 
+- Salir 
+
+Si -> iniciar 
+- Si no hay una partida anteriormente guardada 
+ -> creamos archivo 
+ . Partida nueva 
+ . Volver al menu
+- Si ya hay una partida guardada 
+    -> Abrir archivo 
+    . Continuar Partida
+    . Empezar Nueva Partida 
+    . Volver al menu principal
+
+Si -> Salir 
+- Terminar sesion
+
+        Si -> Iniciar 
+            -> Partida Nueva 
+                // que seleccione la cantidad de jugadores (si 1 o 2)
+                -> Si 1 Jugador 
+                    - Empezar Partida ( Parametro Carton)
+                -> Si 2 Jugadores 
+                    - Empezar Partida (Parametro Carton 1, Parametro Carton 2)
+
+//Para las funciones
+Bingo1 = Partida( Parametro Carton 1)
+Bingo2 = Partida ( Parametro Carton 1, Carton 2)
+
+2 funciones, una que recorra, busque y tache, la otra que pregunte si ya termino
+
+
